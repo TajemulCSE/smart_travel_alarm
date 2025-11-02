@@ -34,8 +34,10 @@ Media: video_player (for onbording videos)
 System: permission_handler
 
 ## Screenshots
-Notification Permission: ![Image](https://github.com/user-attachments/assets/69644881-818a-44d9-ac93-ef7b6402cba4)
-Onboarding Screen view 1: ![Image](https://github.com/user-attachments/assets/d52cd8f2-a96d-40c8-9a64-7bf803bb51fd)
+#### Notification Permission: 
+![Image](https://github.com/user-attachments/assets/69644881-818a-44d9-ac93-ef7b6402cba4)
+#### Onboarding Screen view 1: 
+![Image](https://github.com/user-attachments/assets/d52cd8f2-a96d-40c8-9a64-7bf803bb51fd)
 
 
 
