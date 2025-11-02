@@ -55,4 +55,10 @@ System: permission_handler
 #### Home Screen:
 ![Image](https://github.com/user-attachments/assets/895f786c-a36c-404e-919b-25e65453983a)
 
-#### Home Screen:
+#### Add Alarm with Date and Time Picker:
+![Image](https://github.com/user-attachments/assets/d9dfd035-6ac3-4b04-90ba-8f020270a367)
+#### New Alarm Added:
+![Image](https://github.com/user-attachments/assets/1a9e6697-263f-4a1c-9d85-fbedd67dc65c)
+
+#### Alarm notification showed in selected Alarm time:
+![Image](https://github.com/user-attachments/assets/449ce74f-c089-479c-af54-7d165ecc5de7)
