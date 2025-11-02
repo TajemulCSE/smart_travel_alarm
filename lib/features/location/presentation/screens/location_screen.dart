@@ -132,7 +132,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
             // Location image
             Positioned(
-              top: 330,
+              top: 290,
               left: 20,
               right: 20,
               child: SizedBox(

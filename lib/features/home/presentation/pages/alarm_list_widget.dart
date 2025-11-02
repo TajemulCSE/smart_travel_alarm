@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_travel_alarm/helpers/notifications/notification_helper.dart';
 
 class AlarmListWidget extends StatefulWidget {
   const AlarmListWidget({super.key});
@@ -60,6 +61,14 @@ class _AlarmListWidgetState extends State<AlarmListWidget> {
         'enabled': true,
       });
     });
+
+    //Schedule the notification
+   await NotificationHelper.scheduleNotification(
+  id: DateTime.now().millisecondsSinceEpoch ~/ 1000, // unique ID
+  title: "Alarm",
+  body: "It's ${formattedTime}! Time for your travel reminder.",
+  scheduledTime: finalDateTime,
+);
   }
 
   @override

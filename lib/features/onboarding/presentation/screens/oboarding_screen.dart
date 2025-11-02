@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_travel_alarm/constants/app_colors.dart';
 import 'package:smart_travel_alarm/features/location/presentation/screens/location_screen.dart';
 import 'package:smart_travel_alarm/features/onboarding/presentation/pages/onboarding_page.dart';
@@ -14,6 +15,18 @@ class _OboardingScreenState extends State<OboardingScreen> {
   final PageController _controller = PageController();
 
   int currentIndex = 0;
+
+  Future<void> _completeOnboarding() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarding_done', true);
+    
+    if (mounted) {
+      // Navigate to home screen and remove all previous routes
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => LocationScreen()),
+      );
+    }
+  }
   
    @override
   void dispose() {
@@ -67,7 +80,8 @@ class _OboardingScreenState extends State<OboardingScreen> {
               child: TextButton(
                 onPressed:()
                 {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
+                  _completeOnboarding();
+                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
 
                 } 
                 ,
@@ -124,7 +138,8 @@ class _OboardingScreenState extends State<OboardingScreen> {
                       curve: Curves.easeInOut,
                     );
                   } else {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
+                    _completeOnboarding();
+                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
                   }
                 },
                 child: Text(

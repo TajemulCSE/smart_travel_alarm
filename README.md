@@ -1,16 +1,38 @@
-# smart_travel_alarm
+# Smart Travel Alarm
 
-A new Flutter project.
+**Smart Travel Alarm** is a Flutter-based mobile application that allows users to schedule alarms for specific times and locations — ensuring they never miss important travel reminders.  
+It provides a modern UI, accurate time-zone scheduling, and instant/local notifications.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Project Setup
 
-A few resources to get you started if this is your first Flutter project:
+Follow these steps to set up the project on your local environment.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Clone the Repository
+```bash
+git clone https://github.com/yourusername/smart_travel_alarm.git
+cd smart_travel_alarm
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Technology Stack & Packages
+
+Core Framework
+
+Flutter (using Dart)
+
+Packages Used
+
+Location & Geo-Fencing: geolocator, geocoding
+
+Notifications & Timing: flutter_local_notifications, timezone, intl
+
+Data Persistence: shared_preferences
+
+Media: video_player (for onbording videos)
+
+System: permission_handler
+
+
+
+

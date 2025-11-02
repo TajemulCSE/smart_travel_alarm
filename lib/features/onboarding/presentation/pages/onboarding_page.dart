@@ -20,6 +20,8 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   late VideoPlayerController _controller;
 
+  
+
   @override
   void initState() {
     // TODO: implement initState
