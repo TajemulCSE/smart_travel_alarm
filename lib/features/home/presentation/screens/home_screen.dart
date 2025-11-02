@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:smart_travel_alarm/features/home/presentation/pages/alarm_list_widget.dart';
+import 'package:smart_travel_alarm/helpers/locations/location_utils.dart';
+import 'package:smart_travel_alarm/helpers/permissions/permission_handler.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,6 +12,37 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final PermissionHandler _permissionHandler = PermissionHandler();
+  final TextEditingController _locationController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _setCurrentLocation(); // Automatically fetch location on screen load
+  }
+
+  Future<void> _setCurrentLocation() async {
+    final status = await _permissionHandler.checkAndRequestPermission();
+    if (status != LocationPermissionStatus.granted) return;
+
+    try {
+      Position position = await _permissionHandler.getCurrentLocation();
+      String address =
+          await LocationUtils.getAddressFromCoordinates(position);
+
+      // Set the address to the TextField
+      _locationController.text = address;
+    } catch (e) {
+      _locationController.text = "Error fetching location";
+    }
+  }
+
+  @override
+  void dispose() {
+    _locationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,22 +76,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10),
 
-                  //location text field
+                  // Location TextField
                   Container(
                     height: 66,
                     decoration: BoxDecoration(
                       color: const Color(0xFF1B0F39),
                       borderRadius: BorderRadius.circular(61),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Padding(
-                        padding: EdgeInsets.all(15.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: TextField(
-                          style: TextStyle(
-                            color: Colors.white54,
+                          controller: _locationController,
+                          readOnly: true,
+                          style: const TextStyle(
+                            color: Colors.white,
                             fontFamily: 'popins',
                           ),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             prefixIcon: ImageIcon(
                               AssetImage('assets/icons/location_1.png'),
                               color: Colors.white70,
@@ -78,7 +114,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            //alarm list
             const SizedBox(height: 20),
             const Expanded(child: AlarmListWidget()),
           ],

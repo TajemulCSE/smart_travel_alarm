@@ -94,7 +94,7 @@ class _AlarmListWidgetState extends State<AlarmListWidget> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      const SizedBox(width: 80),
+                      const SizedBox(width: 65),
                       Text(
                         alarm['date'],
                         style: TextStyle(

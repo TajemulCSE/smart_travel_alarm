@@ -14,6 +14,12 @@ class _OboardingScreenState extends State<OboardingScreen> {
   final PageController _controller = PageController();
 
   int currentIndex = 0;
+  
+   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   final pages = [
     {
@@ -61,7 +67,7 @@ class _OboardingScreenState extends State<OboardingScreen> {
               child: TextButton(
                 onPressed:()
                 {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
 
                 } 
                 ,
@@ -118,7 +124,7 @@ class _OboardingScreenState extends State<OboardingScreen> {
                       curve: Curves.easeInOut,
                     );
                   } else {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LocationScreen()));
                   }
                 },
                 child: Text(
