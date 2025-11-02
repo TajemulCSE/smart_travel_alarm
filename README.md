@@ -12,16 +12,16 @@ Follow these steps to set up the project on your local environment.
 ### Clone the Repository
 ```bash
 git clone https://github.com/yourusername/smart_travel_alarm.git
-cd smart_travel_alarm
-
+cd smart_travel_alarm 
+```
 
 ## Technology Stack & Packages
 
-Core Framework
+Core Framework:
 
 Flutter (using Dart)
 
-Packages Used
+Packages Used:
 
 Location & Geo-Fencing: geolocator, geocoding
 
