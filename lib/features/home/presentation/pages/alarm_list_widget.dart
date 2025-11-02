@@ -103,7 +103,7 @@ class _AlarmListWidgetState extends State<AlarmListWidget> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      const SizedBox(width: 65),
+                      const SizedBox(width: 60),
                       Text(
                         alarm['date'],
                         style: TextStyle(
@@ -115,6 +115,7 @@ class _AlarmListWidgetState extends State<AlarmListWidget> {
                       ),
                     ],
                   ),
+                  SizedBox(width: 1,),
 
                   // Switch
                   Switch(
